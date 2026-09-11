@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head', { title: 'Inicio' }) %>
+</head>
+<body>
+  <%- include('partials/topmenu', { page: page }) %>
+
+  <main class="page-container">
+    <div class="card">
+      <h1 class="page-title" id="home-welcome">Bienvenido</h1>
+      <p class="page-subtitle">Panel principal del template inicial. Desde aquí puedes navegar a los módulos disponibles.</p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Usuarios totales</div>
+          <div class="stat-value" id="stat-total-users">-</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Usuarios activos</div>
+          <div class="stat-value" id="stat-active-users">-</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Roles registrados</div>
+          <div class="stat-value" id="stat-total-roles">-</div>
+        </div>
+      </div>
+
+      <a href="/usuarios" class="btn btn-primary">Ir a Usuarios</a>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

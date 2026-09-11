@@ -1,0 +1,17 @@
+<header class="topmenu">
+  <div class="topmenu__brand">Final01</div>
+
+  <ul class="topmenu__links">
+    <li><a href="/home" class="<%= page === 'home' ? 'active' : '' %>">Inicio</a></li>
+    <li><a href="/usuarios" class="<%= page === 'usuarios' ? 'active' : '' %>">Usuarios</a></li>
+  </ul>
+
+  <div class="topmenu__user">
+    <div class="avatar" id="topmenu-avatar">?</div>
+    <div>
+      <div id="topmenu-username">-</div>
+      <div id="topmenu-role" style="font-size: 0.75rem; opacity: 0.8;"></div>
+    </div>
+    <button class="btn-logout" id="btn-logout">Salir</button>
+  </div>
+</header>

@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: final01_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: final01_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - final01_pgdata:/var/lib/postgresql/data
+
+volumes:
+  final01_pgdata:

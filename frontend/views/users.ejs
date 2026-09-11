@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head', { title: 'Usuarios' }) %>
+</head>
+<body>
+  <%- include('partials/topmenu', { page: page }) %>
+
+  <main class="page-container">
+    <div class="card">
+      <div class="toolbar">
+        <div>
+          <h1 class="page-title">Usuarios</h1>
+          <p class="page-subtitle" style="margin-bottom: 0;">Listado, creación y actualización de usuarios del sistema.</p>
+        </div>
+        <button class="btn btn-primary" id="btn-new-user">+ Nuevo usuario</button>
+      </div>
+
+      <div id="users-alert" class="alert alert-error hidden"></div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Usuario</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="users-tbody">
+            <tr id="users-loading">
+              <td colspan="7" class="spinner-text">Cargando usuarios...</td>
+            </tr>
+            <tr id="users-empty" class="hidden">
+              <td colspan="7" class="spinner-text">No hay usuarios registrados todavía.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <!-- Modal crear/editar usuario -->
+  <div class="modal-backdrop hidden" id="user-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="user-modal-title">Nuevo usuario</h2>
+        <button class="modal-close" id="user-modal-close">&times;</button>
+      </div>
+
+      <div id="user-form-alert" class="alert alert-error hidden"></div>
+
+      <form id="user-form" novalidate>
+        <div class="form-group">
+          <label for="username">Usuario</label>
+          <input type="text" id="username" name="username" class="form-control" required minlength="3" maxlength="50">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombres">Nombres</label>
+            <input type="text" id="nombres" name="nombres" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="idRol">Rol</label>
+          <select id="idRol" name="idRol" class="form-control" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" class="form-control" minlength="6">
+          <small class="spinner-text hidden" id="password-hint">Deja este campo vacío para mantener la contraseña actual.</small>
+        </div>
+
+        <div class="form-group" id="activo-group">
+          <label>
+            <input type="checkbox" id="activo" name="activo" checked>
+            Usuario activo
+          </label>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="user-modal-cancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="user-form-submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/users.js"></script>
+</body>
+</html>
