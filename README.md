@@ -21,7 +21,7 @@ Las credenciales de base de datos se leen de variables de entorno (con valores p
 datasource:
   url: ${DB_URL:jdbc:postgresql://localhost:5434/final01_db}
   username: ${DB_USERNAME:postgres}
-  password: ${DB_PASSWORD:yondaime}
+  password: ${DB_PASSWORD:password}
 ```
 
 | Variable      | Descripción                          | Valor por defecto                                  |
@@ -93,6 +93,8 @@ java -jar target/backend.jar
 
 ### Endpoints principales
 
+> Manual completo con ejemplos `curl` de cada endpoint (incluyendo formato de respuesta y errores): [`docs/API.md`](docs/API.md).
+
 | Método | Endpoint              | Descripción                    | Auth |
 |--------|------------------------|---------------------------------|------|
 | POST   | `/api/auth/login`      | Login, retorna JWT              | No   |
@@ -103,6 +105,7 @@ java -jar target/backend.jar
 | GET    | `/api/roles`           | Listar roles                    | Sí   |
 | POST   | `/api/roles`           | Crear rol                       | Sí   |
 | PUT    | `/api/roles/{id}`      | Actualizar rol                  | Sí   |
+| GET    | `/api/persona`         | Listar personas ⚠️ **incompleto** (sin service/repository, ver [`docs/API.md`](docs/API.md#6-personas-tbl_persona--️-en-construcción)) | Sí |
 
 Todas las respuestas siguen el formato estandarizado:
 
